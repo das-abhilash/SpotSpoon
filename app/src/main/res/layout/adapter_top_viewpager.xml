@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewPagetItem"
+            type="java.lang.String" />
+
+
+
+    </data>
+<FrameLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:src="@drawable/error_drawble"
+        android:scaleType="centerCrop"
+        app:imageUrl = "@{viewPagetItem}"
+        app:errorDrawble = "@{@drawable/error_drawble}"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/overlay_black"/>
+
+    <LinearLayout
+        android:layout_marginBottom="@dimen/dimen_100"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/play"
+            android:layout_marginLeft="@dimen/dimen_16"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:tint="@color/white"/>
+
+        <TextView
+            android:layout_marginLeft="@dimen/dimen_16"
+            android:layout_marginStart="@dimen/dimen_16"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chain Smoker new Album 2016"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+
+</FrameLayout>
+    </layout>

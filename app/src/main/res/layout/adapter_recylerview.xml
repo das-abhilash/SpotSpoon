@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="position"
+            type="java.lang.Integer"/>
+
+        <variable
+            name="adapter"
+            type="in.zollet.abhilashdas.spotspoon.ui.adapter.SingleLayoutAdapter"/>
+
+        <variable
+            name="item"
+            type="in.zollet.abhilashdas.spotspoon.model.ListItem"/>
+
+        <variable
+            name="model"
+            type="in.zollet.abhilashdas.spotspoon.viewmodel.MainViewModel"/>
+
+
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardBackgroundColor="@color/white"
+        card_view:cardCornerRadius="@dimen/dimen_2"
+        card_view:cardElevation="@dimen/dimen_4"
+        card_view:cardMaxElevation="@dimen/dimen_8"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:onClick="@{(view) -> model.onItemClicked(view,item)}">
+<LinearLayout
+    android:layout_margin="@dimen/dimen_4"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:src="@drawable/error_drawble"
+        app:imageUrl = "@{item.url}"
+        app:errorDrawble = "@{@drawable/error_drawble}"/>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_4"
+        android:paddingLeft="@dimen/dimen_8"
+        android:paddingStart="@dimen/dimen_8">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{item.title}"
+            tools:text="sdfsd"
+            android:textColor="@color/title"
+            style="@style/Base.TextAppearance.AppCompat.Title"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{item.timesAgo}"
+            tools:text="sdfxsdfsdsd"
+            android:textColor="@color/detailText"
+            style="@style/Base.TextAppearance.AppCompat.Body1"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{item.detail}"
+            android:layout_gravity="bottom"
+            android:paddingTop="@dimen/dimen_8"
+            tools:text="sdfxsdfsdsd"
+            android:textColor="@color/detailText"
+            style="@style/Base.TextAppearance.AppCompat.Subhead"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+    </android.support.v7.widget.CardView>
+    </layout>

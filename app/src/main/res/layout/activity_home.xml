@@ -1,0 +1,85 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="in.zollet.abhilashdas.spotspoon.viewmodel.MainViewModel" />
+
+    </data>
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows = "true">
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/dimen_8"
+            android:fitsSystemWindows="true">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            >
+
+                <android.support.v4.view.ViewPager
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_gravity="bottom"
+                    android:clipToPadding="false"
+                    app:layoutProvider="@{model.topViewpagerLayoutProvider}"
+                    app:viewPagerConfig="@{model.viewPagerConfiguration}"/>
+
+            <in.zollet.abhilashdas.spotspoon.customview.CirclePageIndicator
+                android:id="@+id/circualrIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="@dimen/dimen_4"
+                android:elevation="@dimen/dimen_16"
+                android:gravity="center"
+                app:pageIndicatorConfig="@{model.viewPagerConfiguration}" />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:tabIndicatorColor="@color/colorPrimary"
+                app:tabMinWidth="72dp"
+                app:tabSelectedTextColor="@color/colorPrimary"
+                app:tabTextColor="#33000000"
+                app:tabMode="fixed"
+                app:tabGravity="fill"
+                app:tabProperty="@{model.bottomViewpagerLayoutProvider}"
+                />
+        </android.support.design.widget.AppBarLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpagerBottom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:clipToPadding="false"
+                app:tabProperty = "@{tabLayout}"
+                app:layoutProvider="@{model.bottomViewpagerLayoutProvider}"
+                app:viewPagerConfig="@{model.bottomViewPagerConfiguration}"/>
+
+    </android.support.v4.widget.NestedScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

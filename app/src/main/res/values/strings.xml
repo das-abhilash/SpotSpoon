@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">SpotSpoon</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="home">Home</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hgf"><![CDATA[tabLayout.getTabAt(0).setIcon(tabIcons[0]);      tabLayout.getTabAt(0).setIcon(tabIcons[0]);
+        tabLayout.getTabAt(1).setIcon(tabIcons[1]);
+        tabLayout.getTabAt(2).setIcon(tabIcons[2]);
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFrag(new OneFragment(), "ONE");
+        adapter.addFrag(new TwoFragment(), "TWO");
+        adapter.addFrag(new ThreeFragment(), "THREE");
+        viewPager.setAdapter(adapter);
+    }
+
+    class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFrag(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public C    tabLayout.getTabAt(1).setIcon(tabIcons[1]);         tabLayout.getTabAt(2).setIcon(tabIcons[2]);     }       private void setupViewPager(ViewPager viewPager) {         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());         adapter.addFrag(new OneFragment(), \"ONE\");         adapter.addFrag(new TwoFragment(), \"TWO\");         adapter.addFrag(new ThreeFragment(), \"THREE\");         viewPager.setAdapter(adapter);     }       class ViewPagerAdapter extends FragmentPagerAdapter {         private final List<Fragment> mFragmentList = new ArrayList<>();         private final List<String> mFragmentTitleList = new ArrayList<>();           public ViewPagerAdapter(FragmentManager manager) {             super(manager);         }           @Override         public Fragment getItem(int position) {             return mFragmentList.get(position);         }           @Override         public int getCount() {             return mFragmentList.size();         }           public void addFrag(Fragment fragment, String title) {             mFragmentList.add(fragment);             mFragmentTitleList.add(title);         }           @Override         public C]]></string>
+</resources>
